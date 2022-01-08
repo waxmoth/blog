@@ -1,13 +1,18 @@
+# IDEs Settings
 .DS_Store
 .idea
+
+# NodeJS dependences
 node_modules
 
+# Poject sepcial settings
 Thumbs.db
 db.json
 .env
 _config.yml
 _config.landscape.yml
 *.log
+themes
 
 # Floders created by build
 public
