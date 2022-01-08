@@ -1,4 +1,4 @@
-# Waxmoth Blog
+# Blog
 Try to write and record things? Why not write a [Hexo](https://github.com/hexojs/hexo/) blog?
 
 ## How to use it?
