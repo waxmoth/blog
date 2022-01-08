@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+node_modules
+
+Thumbs.db
+db.json
+.env
+_config.yml
+_config.landscape.yml
+*.log
+
+# Build path
+public
+.deploy*/
