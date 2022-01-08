@@ -9,6 +9,6 @@ _config.yml
 _config.landscape.yml
 *.log
 
-# Build path
+# Floders created by build
 public
 .deploy*/

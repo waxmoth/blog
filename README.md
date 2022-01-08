@@ -27,3 +27,13 @@ docker-compose run --rm node bash -c "npm run clean && npm run build"
 ```shell script
 docker-compose up -d
 ```
+
+* Create a draft post 
+```shell script
+docker-compose run --rm node bash -c "npm run create-draft 'Example post'"
+```
+
+* Publish your post
+```shell script
+docker-compose run --rm node bash -c "npm run publish 'Example post'"
+```
