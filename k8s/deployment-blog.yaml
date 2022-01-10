@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog
+  labels:
+    name: blog
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  type: NodePort
+  selector:
+    name: blog
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: blog
+  name: blog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: blog
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: blog
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: blog-configmap
+          image: blog-nginx:latest
+          imagePullPolicy: IfNotPresent
+          name: blog
+          ports:
+            - containerPort: 80
+      restartPolicy: Always

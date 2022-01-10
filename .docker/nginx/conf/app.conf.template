@@ -3,8 +3,33 @@ server {
     server_name ${SITE};
     server_tokens off;
 
-    location / {
-        return 301 https://$host$request_uri;
+#    location / {
+#        return 301 https://$host$request_uri;
+#    }
+
+    root /data/sites/blog;
+    error_log /var/log/nginx/blog_error.log warn;
+
+    index index.php index.html index.htm;
+
+    location ~ /(readme.html|README.md)$ {
+      deny all;
+    }
+
+    location ~* /*.(env|dist|sql|sh)$ {
+      deny all;
+    }
+
+    add_header Content-Security-Policy upgrade-insecure-requests;
+
+    error_page 404 /404.html;
+
+    location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
     }
 }
 

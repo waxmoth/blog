@@ -17,3 +17,6 @@ themes
 # Floders created by build
 public
 .deploy*/
+
+# Drafts post
+source/_drafts/*
