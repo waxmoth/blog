@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blog-configmap
+  namespace: default
+data:
+  SITE: blog.example.com
