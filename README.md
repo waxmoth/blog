@@ -13,6 +13,13 @@ cp _config.yml.dist _config.yml
 docker-compose build
 ```
 
+* Install some [HEXO themes](https://hexo.io/themes/) if needed
+```bash
+git --git-dir=/dev/null clone --depth=1 https://github.com/sanjinhub/hexo-theme-geek.git themes/geek
+
+# Modifier the _config.yml set the theme as geek
+```
+
 * Install required NodeJS libraries
 ```shell script
 docker-compose run --rm node bash -c "npm install"
