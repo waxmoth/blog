@@ -148,7 +148,7 @@ spec:
 
 5. Deploy the blog into minikube
 ```bash
-kubectl -f k8s/
+kubectl apply -f k8s/
 ```
 
 6. Verify the blog service and expose ports
@@ -171,7 +171,12 @@ http://192.168.49.2:30500
 http://192.168.49.2:30211
 ```
 
-8. Check it in browser and enjoy your blog
+8. Modifier the hosts
+```
+sudo -- sh -c "echo '$(minikube ip) blog.example.com' >> /etc/hosts"
+```
+
+9. Check it in browser and enjoy your blog
 ```
 https://blog.example.com/
 ```
