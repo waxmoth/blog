@@ -12,7 +12,7 @@ services:
       - .env
     ports:
       - 8004:4000 # Expose port for Hexo server
-    command: bash -c "npm run server"
+    command: bash -c "npm run watch"
 
   nginx:
     build:

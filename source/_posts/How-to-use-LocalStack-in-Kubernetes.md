@@ -8,7 +8,7 @@ tags: k8s,localstack,docker,minikube
 - Deploy the LocalStack into your Kubernetes cluster;
 - How to use the local AWS services in LocalStack.
 
-### Install Helm and deploy the LocalStack into k8s
+### Install the Helm and use it to deploy the LocalStack into k8s
 
 The [LocalStack](https://localstack.cloud/) is a fully functional local cloud stack, which we can use to develop and test the serverless apps offline.
 We can use Helm to deploy the LocalStack into k8s
