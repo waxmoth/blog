@@ -8,7 +8,13 @@ cp .env.dist .env
 cp _config.yml.dist _config.yml
 ```
 
-* Build image in your local
+* Add SSL certificates for your site from certbot **OPTIONAL**
+```shell
+sudo docker run --rm -it -v "${PWD}/.docker/nginx/letsencrypt:/etc/letsencrypt/" \
+    -p 80:80 certbot/certbot certonly --standalone -d ${SITE}
+```
+
+* Build docker images
 ```shell script
 docker-compose build
 ```
@@ -18,6 +24,9 @@ docker-compose build
 git --git-dir=/dev/null clone --depth=1 https://github.com/sanjinhub/hexo-theme-geek.git themes/geek
 
 # Modifier the _config.yml set the theme as geek
+
+# Modifier the configures in the themes
+# vim themes/geek/_config.yml
 ```
 
 * Install required NodeJS libraries
