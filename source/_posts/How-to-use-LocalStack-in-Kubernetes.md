@@ -14,7 +14,7 @@ The [LocalStack](https://localstack.cloud/) is a fully functional local cloud st
 We can use Helm to deploy the LocalStack into k8s
 ```shell
 sudo snap install helm --classic
-helm repo add localstack-repo https://helm.localstack.cloud
+helm repo add localstack-repo https://localstack.github.io/helm-charts
 helm upgrade --install localstack localstack-repo/localstack
 ```
 
