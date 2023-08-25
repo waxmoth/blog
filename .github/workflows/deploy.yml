@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - Setup_deploy_action
 
 jobs:
   build:
@@ -23,7 +22,7 @@ jobs:
         run: |
           rsync -avz ./source/ \
             ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}/source/
-      - name: "Rebuild pages"
+      - name: "Rebuild the Pages"
         run: |
           ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
             cd ${{ secrets.REMOTE_TARGET }} &&
