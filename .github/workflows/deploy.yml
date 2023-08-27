@@ -1,0 +1,31 @@
+name: "Deploy"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: "Install SSH Key"
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.REMOTE_HOST }}
+      - name: "Adding Known Hosts"
+        run: ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+      - name: "Deploy to Server"
+        run: |
+          rsync -avz ./source/ \
+            ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}/source/
+      - name: "Rebuild the Pages"
+        run: |
+          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
+            cd ${{ secrets.REMOTE_TARGET }} &&
+            docker-compose run --rm node bash -c 'npm run clean && npm run build' &&
+            docker-compose up -d --force-recreate
+          "

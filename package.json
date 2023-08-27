@@ -1,6 +1,6 @@
 {
   "name": "waxmoth-blog",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "hexo generate && hexo server",
@@ -13,7 +13,7 @@
     "watch": "npm-watch"
   },
   "hexo": {
-    "version": "6.0.0"
+    "version": "6.3.0"
   },
   "dependencies": {
     "hexo": "^6.3.0",

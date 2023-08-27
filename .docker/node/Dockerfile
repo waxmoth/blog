@@ -1,6 +1,6 @@
-FROM node:latest
+FROM node:20-alpine3.18
 
-RUN apt-get update && apt-get install -y \
-    git-core
+RUN apk add --update --no-cache \
+    git bash
 
 RUN npm install -g hexo-cli
