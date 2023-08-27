@@ -6,13 +6,14 @@ services:
       context: .docker/node
       dockerfile: Dockerfile
     working_dir: /app
+    user: "node:node"
     volumes:
       - .:/app
     env_file:
       - .env
     ports:
-      - "8004:4000" # Expose port for Hexo server
-    command: bash -c "npm run watch"
+      - "8004:4000"
+    command: ["npm", "run", "watch"]
 
   nginx:
     build:
