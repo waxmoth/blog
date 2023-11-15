@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - '**.md'
+      - '.github/workflows/deploy.yml'
 
 jobs:
   deploy:
@@ -22,7 +23,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
       - name: "Deploy to Server"
         run: |
-          rsync -avz ./source/ \
+          rsync -avz --no-perms --no-owner --no-group --no-times --delete ./source/ \
             ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}/source/
       - name: "Rebuild the Pages"
         run: |
