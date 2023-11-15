@@ -4,7 +4,7 @@ date: 2022-01-10 02:45:59
 tags: kubernetes, k8s, hexo, blog
 ---
 
-### What we can learn from this post
+### What we can learn from this post?
 
 - Build the blog image;
 - Deploy your blog image into the local K8s cluster.
